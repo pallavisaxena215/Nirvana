@@ -1,0 +1,3220 @@
+{
+  "contractName": "NirvanaPaymentChannel",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "customers",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "customer_collateral",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "duration",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "merchants",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "earnings",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "registerCustomer",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address payable[]",
+          "name": "_merchantAddresses",
+          "type": "address[]"
+        }
+      ],
+      "name": "add_merchants",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable[]\",\"name\":\"_merchantAddresses\",\"type\":\"address[]\"}],\"name\":\"add_merchants\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"customers\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"customer_collateral\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"duration\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"merchants\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"earnings\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"registerCustomer\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Accept customer deposits and allow merchant withdrawals. A customer is allowed to deposit 100 milliether per collateral.\",\"methods\":{},\"title\":\"Nirvana\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/pallavisaxena/Nirvana/contracts/Nirvana.sol\":\"NirvanaPaymentChannel\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/pallavisaxena/Nirvana/contracts/Nirvana.sol\":{\"keccak256\":\"0x4ef660b0a3916a84044ece58162c3d9c7d1eea1b52248be1ccfbba52e5f82989\",\"urls\":[\"bzz-raw://75fe1af31d172919fbe1fb3dae326ad60e01d684beaa3129f08bb2cca96041ea\",\"dweb:/ipfs/QmbuaEwR8zWPhbKTiN4PCdhsN3ASSYBFeq8HyfVqDGkFn4\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610665806100616000396000f3fe60806040526004361061003f5760003560e01c80632735701114610044578063336989ae1461004e57806367fb729e146100c5578063ee14e9391461018a575b600080fd5b61004c6101fa565b005b34801561005a57600080fd5b5061009d6004803603602081101561007157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102e5565b6040518084151515158152602001838152602001828152602001935050505060405180910390f35b3480156100d157600080fd5b50610188600480360360208110156100e857600080fd5b810190808035906020019064010000000081111561010557600080fd5b82018360208201111561011757600080fd5b8035906020019184602083028401116401000000008311171561013957600080fd5b919080806020026020016040519081016040528093929190818152602001838360200280828437600081840152601f19601f82011690508083019250505050505050919291929050505061031c565b005b34801561019657600080fd5b506101d9600480360360208110156101ad57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061050e565b60405180831515151581526020018281526020019250505060405180910390f35b34600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101819055506001600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160006101000a81548160ff02191690831515021790555042600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020181905550565b60036020528060005260406000206000915090508060000160009054906101000a900460ff16908060010154908060020154905083565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146103c2576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602481526020018061060d6024913960400191505060405180910390fd5b80600290805190602001906103d892919061053f565b5060008090505b60028054905081101561050a57600160046000600284815481106103ff57fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160006101000a81548160ff0219169083151502179055506000600460006002848154811061049157fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001018190555080806001019150506103df565b5050565b60046020528060005260406000206000915090508060000160009054906101000a900460ff16908060010154905082565b8280548282559060005260206000209081019282156105b8579160200282015b828111156105b75782518260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055509160200191906001019061055f565b5b5090506105c591906105c9565b5090565b61060991905b8082111561060557600081816101000a81549073ffffffffffffffffffffffffffffffffffffffff0219169055506001016105cf565b5090565b9056fe4f6e6c79204e697276616e612063616e2063616c6c20746869732066756e6374696f6e2ea265627a7a723158206bc5863a1f2ea19978ef69bd4c457cd412760063d176c806a14e7d6f6802656c64736f6c63430005100032",
+  "deployedBytecode": "0x60806040526004361061003f5760003560e01c80632735701114610044578063336989ae1461004e57806367fb729e146100c5578063ee14e9391461018a575b600080fd5b61004c6101fa565b005b34801561005a57600080fd5b5061009d6004803603602081101561007157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102e5565b6040518084151515158152602001838152602001828152602001935050505060405180910390f35b3480156100d157600080fd5b50610188600480360360208110156100e857600080fd5b810190808035906020019064010000000081111561010557600080fd5b82018360208201111561011757600080fd5b8035906020019184602083028401116401000000008311171561013957600080fd5b919080806020026020016040519081016040528093929190818152602001838360200280828437600081840152601f19601f82011690508083019250505050505050919291929050505061031c565b005b34801561019657600080fd5b506101d9600480360360208110156101ad57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061050e565b60405180831515151581526020018281526020019250505060405180910390f35b34600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101819055506001600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160006101000a81548160ff02191690831515021790555042600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020181905550565b60036020528060005260406000206000915090508060000160009054906101000a900460ff16908060010154908060020154905083565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146103c2576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602481526020018061060d6024913960400191505060405180910390fd5b80600290805190602001906103d892919061053f565b5060008090505b60028054905081101561050a57600160046000600284815481106103ff57fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160006101000a81548160ff0219169083151502179055506000600460006002848154811061049157fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001018190555080806001019150506103df565b5050565b60046020528060005260406000206000915090508060000160009054906101000a900460ff16908060010154905082565b8280548282559060005260206000209081019282156105b8579160200282015b828111156105b75782518260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055509160200191906001019061055f565b5b5090506105c591906105c9565b5090565b61060991905b8082111561060557600081816101000a81549073ffffffffffffffffffffffffffffffffffffffff0219169055506001016105cf565b5090565b9056fe4f6e6c79204e697276616e612063616e2063616c6c20746869732066756e6374696f6e2ea265627a7a723158206bc5863a1f2ea19978ef69bd4c457cd412760063d176c806a14e7d6f6802656c64736f6c63430005100032",
+  "sourceMap": "187:1185:1:-;;;687:51;8:9:-1;5:2;;;30:1;27;20:12;5:2;687:51:1;723:10;715:5;;:18;;;;;;;;;;;;;;;;;;187:1185;;;;;;",
+  "deployedSourceMap": "187:1185:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;843:209;;;:::i;:::-;;590:45;;8:9:-1;5:2;;;30:1;27;20:12;5:2;590:45:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;590:45:1;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1055:310;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1055:310:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1055:310:1;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;1055:310:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;1055:310:1;;;;;;101:9:-1;95:2;81:12;77:21;67:8;63:36;60:51;39:11;25:12;22:29;11:108;8:2;;;132:1;129;122:12;8:2;1055:310:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;1055:310:1;;;;;;;;;;;;;;;:::i;:::-;;637:45;;8:9:-1;5:2;;;30:1;27;20:12;5:2;637:45:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;637:45:1;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;843:209;940:9;896;:21;906:10;896:21;;;;;;;;;;;;;;;:41;;:53;;;;986:4;955:9;:21;965:10;955:21;;;;;;;;;;;;;;;:28;;;:35;;;;;;;;;;;;;;;;;;1029:15;996:9;:21;1006:10;996:21;;;;;;;;;;;;;;;:30;;:48;;;;843:209::o;590:45::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1055:310::-;784:5;;;;;;;;;;;770:19;;:10;:19;;;762:68;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1168:18;1145:20;:41;;;;;;;;;;;;:::i;:::-;;1196:6;1203:1;1196:8;;1192:171;1208:20;:27;;;;1206:1;:29;1192:171;;;1295:4;1251:9;:34;1261:20;1282:1;1261:23;;;;;;;;;;;;;;;;;;;;;;;;;1251:34;;;;;;;;;;;;;;;:41;;;:48;;;;;;;;;;;;;;;;;;1355:1;1309:9;:34;1319:20;1340:1;1319:23;;;;;;;;;;;;;;;;;;;;;;;;;1309:34;;;;;;;;;;;;;;;:43;;:47;;;;1237:3;;;;;;;1192:171;;;;1055:310;:::o;637:45::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;187:1185::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.4.22 <0.9.0;\n\n/**\n* @title Nirvana\n* @dev Accept customer deposits and allow merchant withdrawals. A customer is allowed to deposit 100 milliether per collateral.\n*/\n\ncontract NirvanaPaymentChannel{\n\nuint256 p_nonce; //indicates payment nonce. Used by Customers to make multiple payments to merchants. \n //uint256 secrets_required;\naddress owner;\naddress payable[] merchants_in_network;\n \nstruct Customer{\n    bool exists;\n    uint256 customer_collateral;\n    uint256 duration;\n    //bytes32[] secret_hashes;\n}\n\nstruct Merchant{\n    bool exists;\n    uint256 earnings;\n}\nmapping(address => Customer) public customers;\nmapping(address => Merchant) public merchants; \n \nconstructor () public {\n    owner = msg.sender;\n \n}\n \nmodifier onlyOwner { require(msg.sender == owner, 'Only Nirvana can call this function.'); _;}\n \n\n \n \nfunction registerCustomer() public payable{\n    \n    customers[msg.sender].customer_collateral = msg.value;\n    customers[msg.sender].exists = true;\n    customers[msg.sender].duration = block.timestamp; \n   \n}\n \nfunction add_merchants(address payable[] memory _merchantAddresses) public onlyOwner{\n    merchants_in_network = _merchantAddresses;\n    for(uint i=0; i<merchants_in_network.length; i++){\n        merchants[merchants_in_network[i]].exists = true;\n        merchants[merchants_in_network[i]].earnings = 0;\n    }\n}\n \n\n \n}",
+  "sourcePath": "/Users/pallavisaxena/Nirvana/contracts/Nirvana.sol",
+  "ast": {
+    "absolutePath": "/Users/pallavisaxena/Nirvana/contracts/Nirvana.sol",
+    "exportedSymbols": {
+      "NirvanaPaymentChannel": [
+        157
+      ]
+    },
+    "id": 158,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Nirvana\n@dev Accept customer deposits and allow merchant withdrawals. A customer is allowed to deposit 100 milliether per collateral.",
+        "fullyImplemented": true,
+        "id": 157,
+        "linearizedBaseContracts": [
+          157
+        ],
+        "name": "NirvanaPaymentChannel",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 36,
+            "name": "p_nonce",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "220:15:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 35,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "220:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 38,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "352:13:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 37,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "352:7:1",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 41,
+            "name": "merchants_in_network",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "367:38:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+              "typeString": "address payable[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 39,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "367:15:1",
+                "stateMutability": "payable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                }
+              },
+              "id": 40,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "367:17:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_payable_$dyn_storage_ptr",
+                "typeString": "address payable[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "NirvanaPaymentChannel.Customer",
+            "id": 48,
+            "members": [
+              {
+                "constant": false,
+                "id": 43,
+                "name": "exists",
+                "nodeType": "VariableDeclaration",
+                "scope": 48,
+                "src": "430:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 42,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "430:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 45,
+                "name": "customer_collateral",
+                "nodeType": "VariableDeclaration",
+                "scope": 48,
+                "src": "447:27:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "447:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 47,
+                "name": "duration",
+                "nodeType": "VariableDeclaration",
+                "scope": 48,
+                "src": "480:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 46,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "480:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Customer",
+            "nodeType": "StructDefinition",
+            "scope": 157,
+            "src": "409:121:1",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "NirvanaPaymentChannel.Merchant",
+            "id": 53,
+            "members": [
+              {
+                "constant": false,
+                "id": 50,
+                "name": "exists",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "553:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 49,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "553:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 52,
+                "name": "earnings",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "570:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 51,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "570:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Merchant",
+            "nodeType": "StructDefinition",
+            "scope": 157,
+            "src": "532:57:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 57,
+            "name": "customers",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "590:45:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+              "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer)"
+            },
+            "typeName": {
+              "id": 56,
+              "keyType": {
+                "id": 54,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "598:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "590:28:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+                "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 55,
+                "name": "Customer",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 48,
+                "src": "609:8:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Customer_$48_storage_ptr",
+                  "typeString": "struct NirvanaPaymentChannel.Customer"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 61,
+            "name": "merchants",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "637:45:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Merchant_$53_storage_$",
+              "typeString": "mapping(address => struct NirvanaPaymentChannel.Merchant)"
+            },
+            "typeName": {
+              "id": 60,
+              "keyType": {
+                "id": 58,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "645:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "637:28:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Merchant_$53_storage_$",
+                "typeString": "mapping(address => struct NirvanaPaymentChannel.Merchant)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 59,
+                "name": "Merchant",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 53,
+                "src": "656:8:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Merchant_$53_storage_ptr",
+                  "typeString": "struct NirvanaPaymentChannel.Merchant"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 69,
+              "nodeType": "Block",
+              "src": "709:29:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 67,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 64,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 38,
+                      "src": "715:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 65,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "723:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 66,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "723:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "715:18:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 68,
+                  "nodeType": "ExpressionStatement",
+                  "src": "715:18:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 70,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "699:2:1"
+            },
+            "returnParameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "709:0:1"
+            },
+            "scope": 157,
+            "src": "687:51:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 81,
+              "nodeType": "Block",
+              "src": "760:75:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 76,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 73,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 172,
+                            "src": "770:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 74,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "770:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 75,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 38,
+                          "src": "784:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "770:19:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4f6e6c79204e697276616e612063616e2063616c6c20746869732066756e6374696f6e2e",
+                        "id": 77,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "791:38:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_1f942f87c97294fd2d92eb477625c8fc1acfa0c9707e1095d41346f1e7153f39",
+                          "typeString": "literal_string \"Only Nirvana can call this function.\""
+                        },
+                        "value": "Only Nirvana can call this function."
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_1f942f87c97294fd2d92eb477625c8fc1acfa0c9707e1095d41346f1e7153f39",
+                          "typeString": "literal_string \"Only Nirvana can call this function.\""
+                        }
+                      ],
+                      "id": 72,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        175,
+                        176
+                      ],
+                      "referencedDeclaration": 176,
+                      "src": "762:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 78,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "762:68:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 79,
+                  "nodeType": "ExpressionStatement",
+                  "src": "762:68:1"
+                },
+                {
+                  "id": 80,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "832:1:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 82,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "760:0:1"
+            },
+            "src": "741:94:1",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 111,
+              "nodeType": "Block",
+              "src": "885:167:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 92,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 85,
+                          "name": "customers",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 57,
+                          "src": "896:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+                            "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer storage ref)"
+                          }
+                        },
+                        "id": 88,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 86,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 172,
+                            "src": "906:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 87,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "906:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "896:21:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$48_storage",
+                          "typeString": "struct NirvanaPaymentChannel.Customer storage ref"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "customer_collateral",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 45,
+                      "src": "896:41:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 90,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "940:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 91,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "value",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "940:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "896:53:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 93,
+                  "nodeType": "ExpressionStatement",
+                  "src": "896:53:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 100,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "customers",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 57,
+                          "src": "955:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+                            "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer storage ref)"
+                          }
+                        },
+                        "id": 97,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 95,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 172,
+                            "src": "965:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 96,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "965:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "955:21:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$48_storage",
+                          "typeString": "struct NirvanaPaymentChannel.Customer storage ref"
+                        }
+                      },
+                      "id": 98,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "exists",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 43,
+                      "src": "955:28:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 99,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "986:4:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "955:35:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 101,
+                  "nodeType": "ExpressionStatement",
+                  "src": "955:35:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 109,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 102,
+                          "name": "customers",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 57,
+                          "src": "996:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+                            "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer storage ref)"
+                          }
+                        },
+                        "id": 105,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 103,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 172,
+                            "src": "1006:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 104,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1006:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "996:21:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$48_storage",
+                          "typeString": "struct NirvanaPaymentChannel.Customer storage ref"
+                        }
+                      },
+                      "id": 106,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "duration",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 47,
+                      "src": "996:30:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 107,
+                        "name": "block",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 162,
+                        "src": "1029:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_block",
+                          "typeString": "block"
+                        }
+                      },
+                      "id": 108,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "timestamp",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1029:15:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "996:48:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 110,
+                  "nodeType": "ExpressionStatement",
+                  "src": "996:48:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 112,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerCustomer",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 83,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "868:2:1"
+            },
+            "returnParameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "885:0:1"
+            },
+            "scope": 157,
+            "src": "843:209:1",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 155,
+              "nodeType": "Block",
+              "src": "1139:226:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 122,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 120,
+                      "name": "merchants_in_network",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 41,
+                      "src": "1145:20:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                        "typeString": "address payable[] storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 121,
+                      "name": "_merchantAddresses",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 115,
+                      "src": "1168:18:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_address_payable_$dyn_memory_ptr",
+                        "typeString": "address payable[] memory"
+                      }
+                    },
+                    "src": "1145:41:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                      "typeString": "address payable[] storage ref"
+                    }
+                  },
+                  "id": 123,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1145:41:1"
+                },
+                {
+                  "body": {
+                    "id": 153,
+                    "nodeType": "Block",
+                    "src": "1241:122:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 142,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 135,
+                                "name": "merchants",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 61,
+                                "src": "1251:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Merchant_$53_storage_$",
+                                  "typeString": "mapping(address => struct NirvanaPaymentChannel.Merchant storage ref)"
+                                }
+                              },
+                              "id": 139,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "baseExpression": {
+                                  "argumentTypes": null,
+                                  "id": 136,
+                                  "name": "merchants_in_network",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 41,
+                                  "src": "1261:20:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                                    "typeString": "address payable[] storage ref"
+                                  }
+                                },
+                                "id": 138,
+                                "indexExpression": {
+                                  "argumentTypes": null,
+                                  "id": 137,
+                                  "name": "i",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 125,
+                                  "src": "1282:1:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "1261:23:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1251:34:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Merchant_$53_storage",
+                                "typeString": "struct NirvanaPaymentChannel.Merchant storage ref"
+                              }
+                            },
+                            "id": 140,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "exists",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 50,
+                            "src": "1251:41:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "74727565",
+                            "id": 141,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "bool",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1295:4:1",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            },
+                            "value": "true"
+                          },
+                          "src": "1251:48:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "id": 143,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1251:48:1"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 151,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 144,
+                                "name": "merchants",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 61,
+                                "src": "1309:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Merchant_$53_storage_$",
+                                  "typeString": "mapping(address => struct NirvanaPaymentChannel.Merchant storage ref)"
+                                }
+                              },
+                              "id": 148,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "baseExpression": {
+                                  "argumentTypes": null,
+                                  "id": 145,
+                                  "name": "merchants_in_network",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 41,
+                                  "src": "1319:20:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                                    "typeString": "address payable[] storage ref"
+                                  }
+                                },
+                                "id": 147,
+                                "indexExpression": {
+                                  "argumentTypes": null,
+                                  "id": 146,
+                                  "name": "i",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 125,
+                                  "src": "1340:1:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "1319:23:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1309:34:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Merchant_$53_storage",
+                                "typeString": "struct NirvanaPaymentChannel.Merchant storage ref"
+                              }
+                            },
+                            "id": 149,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "earnings",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 52,
+                            "src": "1309:43:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 150,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1355:1:1",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "1309:47:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 152,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1309:47:1"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 131,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 128,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 125,
+                      "src": "1206:1:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 129,
+                        "name": "merchants_in_network",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 41,
+                        "src": "1208:20:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                          "typeString": "address payable[] storage ref"
+                        }
+                      },
+                      "id": 130,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1208:27:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1206:29:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 154,
+                  "initializationExpression": {
+                    "assignments": [
+                      125
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 125,
+                        "name": "i",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 154,
+                        "src": "1196:6:1",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 124,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1196:4:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 127,
+                    "initialValue": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 126,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1203:1:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "1196:8:1"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 133,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "1237:3:1",
+                      "subExpression": {
+                        "argumentTypes": null,
+                        "id": 132,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 125,
+                        "src": "1237:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 134,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1237:3:1"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "1192:171:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 156,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 118,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 117,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 82,
+                  "src": "1130:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1130:9:1"
+              }
+            ],
+            "name": "add_merchants",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 116,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 115,
+                  "name": "_merchantAddresses",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1078:43:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_payable_$dyn_memory_ptr",
+                    "typeString": "address payable[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 113,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1078:15:1",
+                      "stateMutability": "payable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "id": 114,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1078:17:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_payable_$dyn_storage_ptr",
+                      "typeString": "address payable[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1077:45:1"
+            },
+            "returnParameters": {
+              "id": 119,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1139:0:1"
+            },
+            "scope": 157,
+            "src": "1055:310:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 158,
+        "src": "187:1185:1"
+      }
+    ],
+    "src": "0:1372:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/pallavisaxena/Nirvana/contracts/Nirvana.sol",
+    "exportedSymbols": {
+      "NirvanaPaymentChannel": [
+        157
+      ]
+    },
+    "id": 158,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Nirvana\n@dev Accept customer deposits and allow merchant withdrawals. A customer is allowed to deposit 100 milliether per collateral.",
+        "fullyImplemented": true,
+        "id": 157,
+        "linearizedBaseContracts": [
+          157
+        ],
+        "name": "NirvanaPaymentChannel",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 36,
+            "name": "p_nonce",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "220:15:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 35,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "220:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 38,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "352:13:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 37,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "352:7:1",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 41,
+            "name": "merchants_in_network",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "367:38:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+              "typeString": "address payable[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 39,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "367:15:1",
+                "stateMutability": "payable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                }
+              },
+              "id": 40,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "367:17:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_payable_$dyn_storage_ptr",
+                "typeString": "address payable[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "NirvanaPaymentChannel.Customer",
+            "id": 48,
+            "members": [
+              {
+                "constant": false,
+                "id": 43,
+                "name": "exists",
+                "nodeType": "VariableDeclaration",
+                "scope": 48,
+                "src": "430:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 42,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "430:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 45,
+                "name": "customer_collateral",
+                "nodeType": "VariableDeclaration",
+                "scope": 48,
+                "src": "447:27:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "447:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 47,
+                "name": "duration",
+                "nodeType": "VariableDeclaration",
+                "scope": 48,
+                "src": "480:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 46,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "480:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Customer",
+            "nodeType": "StructDefinition",
+            "scope": 157,
+            "src": "409:121:1",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "NirvanaPaymentChannel.Merchant",
+            "id": 53,
+            "members": [
+              {
+                "constant": false,
+                "id": 50,
+                "name": "exists",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "553:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 49,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "553:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 52,
+                "name": "earnings",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "570:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 51,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "570:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Merchant",
+            "nodeType": "StructDefinition",
+            "scope": 157,
+            "src": "532:57:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 57,
+            "name": "customers",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "590:45:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+              "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer)"
+            },
+            "typeName": {
+              "id": 56,
+              "keyType": {
+                "id": 54,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "598:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "590:28:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+                "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 55,
+                "name": "Customer",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 48,
+                "src": "609:8:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Customer_$48_storage_ptr",
+                  "typeString": "struct NirvanaPaymentChannel.Customer"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 61,
+            "name": "merchants",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "637:45:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Merchant_$53_storage_$",
+              "typeString": "mapping(address => struct NirvanaPaymentChannel.Merchant)"
+            },
+            "typeName": {
+              "id": 60,
+              "keyType": {
+                "id": 58,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "645:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "637:28:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Merchant_$53_storage_$",
+                "typeString": "mapping(address => struct NirvanaPaymentChannel.Merchant)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 59,
+                "name": "Merchant",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 53,
+                "src": "656:8:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Merchant_$53_storage_ptr",
+                  "typeString": "struct NirvanaPaymentChannel.Merchant"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 69,
+              "nodeType": "Block",
+              "src": "709:29:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 67,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 64,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 38,
+                      "src": "715:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 65,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "723:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 66,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "723:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "715:18:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 68,
+                  "nodeType": "ExpressionStatement",
+                  "src": "715:18:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 70,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "699:2:1"
+            },
+            "returnParameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "709:0:1"
+            },
+            "scope": 157,
+            "src": "687:51:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 81,
+              "nodeType": "Block",
+              "src": "760:75:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 76,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 73,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 172,
+                            "src": "770:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 74,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "770:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 75,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 38,
+                          "src": "784:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "770:19:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4f6e6c79204e697276616e612063616e2063616c6c20746869732066756e6374696f6e2e",
+                        "id": 77,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "791:38:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_1f942f87c97294fd2d92eb477625c8fc1acfa0c9707e1095d41346f1e7153f39",
+                          "typeString": "literal_string \"Only Nirvana can call this function.\""
+                        },
+                        "value": "Only Nirvana can call this function."
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_1f942f87c97294fd2d92eb477625c8fc1acfa0c9707e1095d41346f1e7153f39",
+                          "typeString": "literal_string \"Only Nirvana can call this function.\""
+                        }
+                      ],
+                      "id": 72,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        175,
+                        176
+                      ],
+                      "referencedDeclaration": 176,
+                      "src": "762:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 78,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "762:68:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 79,
+                  "nodeType": "ExpressionStatement",
+                  "src": "762:68:1"
+                },
+                {
+                  "id": 80,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "832:1:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 82,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "760:0:1"
+            },
+            "src": "741:94:1",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 111,
+              "nodeType": "Block",
+              "src": "885:167:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 92,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 85,
+                          "name": "customers",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 57,
+                          "src": "896:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+                            "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer storage ref)"
+                          }
+                        },
+                        "id": 88,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 86,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 172,
+                            "src": "906:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 87,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "906:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "896:21:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$48_storage",
+                          "typeString": "struct NirvanaPaymentChannel.Customer storage ref"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "customer_collateral",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 45,
+                      "src": "896:41:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 90,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "940:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 91,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "value",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "940:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "896:53:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 93,
+                  "nodeType": "ExpressionStatement",
+                  "src": "896:53:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 100,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "customers",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 57,
+                          "src": "955:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+                            "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer storage ref)"
+                          }
+                        },
+                        "id": 97,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 95,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 172,
+                            "src": "965:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 96,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "965:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "955:21:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$48_storage",
+                          "typeString": "struct NirvanaPaymentChannel.Customer storage ref"
+                        }
+                      },
+                      "id": 98,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "exists",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 43,
+                      "src": "955:28:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 99,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "986:4:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "955:35:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 101,
+                  "nodeType": "ExpressionStatement",
+                  "src": "955:35:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 109,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 102,
+                          "name": "customers",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 57,
+                          "src": "996:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$48_storage_$",
+                            "typeString": "mapping(address => struct NirvanaPaymentChannel.Customer storage ref)"
+                          }
+                        },
+                        "id": 105,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 103,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 172,
+                            "src": "1006:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 104,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1006:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "996:21:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$48_storage",
+                          "typeString": "struct NirvanaPaymentChannel.Customer storage ref"
+                        }
+                      },
+                      "id": 106,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "duration",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 47,
+                      "src": "996:30:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 107,
+                        "name": "block",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 162,
+                        "src": "1029:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_block",
+                          "typeString": "block"
+                        }
+                      },
+                      "id": 108,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "timestamp",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1029:15:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "996:48:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 110,
+                  "nodeType": "ExpressionStatement",
+                  "src": "996:48:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 112,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerCustomer",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 83,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "868:2:1"
+            },
+            "returnParameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "885:0:1"
+            },
+            "scope": 157,
+            "src": "843:209:1",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 155,
+              "nodeType": "Block",
+              "src": "1139:226:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 122,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 120,
+                      "name": "merchants_in_network",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 41,
+                      "src": "1145:20:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                        "typeString": "address payable[] storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 121,
+                      "name": "_merchantAddresses",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 115,
+                      "src": "1168:18:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_address_payable_$dyn_memory_ptr",
+                        "typeString": "address payable[] memory"
+                      }
+                    },
+                    "src": "1145:41:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                      "typeString": "address payable[] storage ref"
+                    }
+                  },
+                  "id": 123,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1145:41:1"
+                },
+                {
+                  "body": {
+                    "id": 153,
+                    "nodeType": "Block",
+                    "src": "1241:122:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 142,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 135,
+                                "name": "merchants",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 61,
+                                "src": "1251:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Merchant_$53_storage_$",
+                                  "typeString": "mapping(address => struct NirvanaPaymentChannel.Merchant storage ref)"
+                                }
+                              },
+                              "id": 139,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "baseExpression": {
+                                  "argumentTypes": null,
+                                  "id": 136,
+                                  "name": "merchants_in_network",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 41,
+                                  "src": "1261:20:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                                    "typeString": "address payable[] storage ref"
+                                  }
+                                },
+                                "id": 138,
+                                "indexExpression": {
+                                  "argumentTypes": null,
+                                  "id": 137,
+                                  "name": "i",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 125,
+                                  "src": "1282:1:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "1261:23:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1251:34:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Merchant_$53_storage",
+                                "typeString": "struct NirvanaPaymentChannel.Merchant storage ref"
+                              }
+                            },
+                            "id": 140,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "exists",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 50,
+                            "src": "1251:41:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "74727565",
+                            "id": 141,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "bool",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1295:4:1",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            },
+                            "value": "true"
+                          },
+                          "src": "1251:48:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "id": 143,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1251:48:1"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 151,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 144,
+                                "name": "merchants",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 61,
+                                "src": "1309:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Merchant_$53_storage_$",
+                                  "typeString": "mapping(address => struct NirvanaPaymentChannel.Merchant storage ref)"
+                                }
+                              },
+                              "id": 148,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "baseExpression": {
+                                  "argumentTypes": null,
+                                  "id": 145,
+                                  "name": "merchants_in_network",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 41,
+                                  "src": "1319:20:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                                    "typeString": "address payable[] storage ref"
+                                  }
+                                },
+                                "id": 147,
+                                "indexExpression": {
+                                  "argumentTypes": null,
+                                  "id": 146,
+                                  "name": "i",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 125,
+                                  "src": "1340:1:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "1319:23:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1309:34:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Merchant_$53_storage",
+                                "typeString": "struct NirvanaPaymentChannel.Merchant storage ref"
+                              }
+                            },
+                            "id": 149,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "earnings",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 52,
+                            "src": "1309:43:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 150,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1355:1:1",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "1309:47:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 152,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1309:47:1"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 131,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 128,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 125,
+                      "src": "1206:1:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 129,
+                        "name": "merchants_in_network",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 41,
+                        "src": "1208:20:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_payable_$dyn_storage",
+                          "typeString": "address payable[] storage ref"
+                        }
+                      },
+                      "id": 130,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1208:27:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1206:29:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 154,
+                  "initializationExpression": {
+                    "assignments": [
+                      125
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 125,
+                        "name": "i",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 154,
+                        "src": "1196:6:1",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 124,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1196:4:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 127,
+                    "initialValue": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 126,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1203:1:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "1196:8:1"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 133,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "1237:3:1",
+                      "subExpression": {
+                        "argumentTypes": null,
+                        "id": 132,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 125,
+                        "src": "1237:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 134,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1237:3:1"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "1192:171:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 156,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 118,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 117,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 82,
+                  "src": "1130:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1130:9:1"
+              }
+            ],
+            "name": "add_merchants",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 116,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 115,
+                  "name": "_merchantAddresses",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1078:43:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_payable_$dyn_memory_ptr",
+                    "typeString": "address payable[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 113,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1078:15:1",
+                      "stateMutability": "payable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "id": 114,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1078:17:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_payable_$dyn_storage_ptr",
+                      "typeString": "address payable[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1077:45:1"
+            },
+            "returnParameters": {
+              "id": 119,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1139:0:1"
+            },
+            "scope": 157,
+            "src": "1055:310:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 158,
+        "src": "187:1185:1"
+      }
+    ],
+    "src": "0:1372:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2022-08-03T14:14:41.022Z",
+  "devdoc": {
+    "details": "Accept customer deposits and allow merchant withdrawals. A customer is allowed to deposit 100 milliether per collateral.",
+    "methods": {},
+    "title": "Nirvana"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
